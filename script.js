@@ -306,7 +306,7 @@ const filterNewRateFunc = () => {
     const filteredList = sortHight(filteredBooks);
     displayBook(filteredList);
   } else {
-    const filteredList = sortLow(bookfilteredBookss);
+    const filteredList = sortLow(filteredBooks);
     displayBook(filteredList);
   }
 };
