@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.title {
+  text-align: center;
+}
+.card {
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(177, 112, 14, 0.844);
+  border-radius: 20px;
+  display: grid;
+  background-color: #F5DEB3;
+}
+#book-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.dropdown-row {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  border-radius:20px;
+  padding: 6px 0;
+  color: tomato;
+}
+
+#filterDropdownNewRate {
+margin-left: 15px;
+}
+
+img {
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 350px) {
+  .card {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+}
