@@ -179,10 +179,10 @@ const books = [
     genre: "Dystopian",
     rating: 4.12,
     description:
-      "A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.",
-    image: "./books-images/unknown.jpg",
-  },
-];
+      'A dystopian novel set in a seemingly perfect society where young Jonas discovers the dark truth beneath the surface.',
+    image: './books-images/unknown.jpg'
+  }
+]
 
 /* -----------------------------------REQUIREMENTS---------------------------------------*/
 const bookContainer = document.getElementById("book-container");
@@ -192,7 +192,6 @@ const filterCenAl = document.getElementById("filterDropdownCenAl");
 
 const displayBook = (array) => {
   bookContainer.innerHTML = "";
-
   array.forEach((book) => {
     bookContainer.innerHTML += `
    <div class="card">
@@ -251,19 +250,24 @@ const populateNewRateFilter = () => {
 populateNewRateFilter();
 
 // filter book by genre
-let filteredBooks = [...books];
+let filteredBooks = [];
 
 if (genreFilter.value !== "all") {
-  filteredBooks = books.filter((book) => book.genre === genreFilter.value);
+  filteredBooks = books.filter((book) => {
+    return book.genre === genreFilter.value;
+  });
+} else {
+  filteredBooks = books;
 }
-
 genreFilter.addEventListener("change", () => {
   if (genreFilter.value !== "all") {
-    filteredBooks = books.filter((book) => book.genre === genreFilter.value);
-    displayBook(filteredBooks);
+    filteredBooks = books.filter((book) => {
+      return book.genre === genreFilter.value;
+    });
   } else {
-    displayBook(books);
+    filteredBooks = books;
   }
+  displayBook(filteredBooks);
 });
 
 // function to sort book from newest to oldest
@@ -291,7 +295,7 @@ const filterNewRateFunc = () => {
   const value = filterNewRate.value;
 
   if (value === "all") {
-    displayBook(books);
+    displayBook(filteredBooks);
   } else if (value === "Newest") {
     const filteredList = sortNew(filteredBooks);
     displayBook(filteredList);
@@ -302,7 +306,7 @@ const filterNewRateFunc = () => {
     const filteredList = sortHight(filteredBooks);
     displayBook(filteredList);
   } else {
-    const filteredList = sortLow(filteredBooks);
+    const filteredList = sortLow(bookfilteredBookss);
     displayBook(filteredList);
   }
 };
